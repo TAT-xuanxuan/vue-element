@@ -8,7 +8,7 @@ const config = {
         filename: 'main.js',
         path: path.join(__dirname, "dist/js")
     },
-    mode:"none",
+    mode: "none",
     module: {
         rules: [{
                 test: /.vue$/,
