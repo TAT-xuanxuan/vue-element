@@ -1,13 +1,8 @@
 <template>
-  <div id="app">
-  <!--   <keep-alive>
-    	<router-view></router-view>
-    </keep-alive> -->
-  </div>
+    <div id="app">
+        <router-view></router-view>
+    </div>
 </template>
 <style scoped>
-#app{
-	background: url("./assets/images/草原.jpg");
-}
-	
+
 </style>

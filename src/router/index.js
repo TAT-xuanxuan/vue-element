@@ -1,21 +1,24 @@
 import VueRouter from "vue-router"
+import Vue from 'vue'
+
+Vue.use(VueRouter)
+
 const path = require("path");
-const files = require.context("./", false, /\.js$/);
+const files = require.context("./modules/", false, /\.js$/);
 const routes = [];
-console.log(files)
-files.keys().forEach(file => {
-    let name = path.basename(file, ".js");
-    let route = files[item].default;
+
+files.keys().forEach((item) => {
+    let name = path.basename(item, '.js')
+    if (name === 'index') return;
+    let route = files(item).default
     if (Array.isArray(route)) {
-        routes.push(...route);
+        routes.push(...route)
     } else {
-        routes.push(route);
+        routes.push(route)
     }
-});
-
+})
 // 路由实例化
-const Router = new VueRouter({
-
+const router = new VueRouter({
     routes
 })
-export default Router
+export default router
