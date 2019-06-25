@@ -18,9 +18,11 @@ export default {
         };
     },
     methods: {
+        //删除文件
         handleRemove(file, fileList) {
             console.log(file, fileList);
         },
+        //预览文件
         handlePictureCardPreview(file) {
             this.dialogImageUrl = file.url;
             this.dialogVisible = true;
