@@ -1,4 +1,4 @@
-export default [{
+  export default [{
     name: 'home',
     path: "/",
     components: require("@/pages/home"),

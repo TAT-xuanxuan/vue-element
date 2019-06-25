@@ -24,15 +24,8 @@ const config = {
     },
     module: {
         rules: [{
-                test: /.vue$/,
+                test: /\.vue$/,
                 loader: "vue-loader"
-            },
-            {
-                test: /.css$/,
-                use: [
-                    "style-loader",
-                    "css-loader"
-                ]
             },
             {
                 test: /\.(css|less)(\?.*)?$/,
@@ -48,6 +41,14 @@ const config = {
                 options: {
                     limit: 8192,
                     name: "static/images/[name].[ext]"
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: "url-loader",
+                options: {
+                    limit: 8192,
+                    name: "static/fonts/[name].[ext]"
                 }
             }
         ]

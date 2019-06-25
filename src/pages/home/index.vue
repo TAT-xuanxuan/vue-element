@@ -1,10 +1,20 @@
 <template>
     <div>
-        asdgasg123512
+        <div>首页</div>
+        <ui-upload></ui-upload>
     </div>
 </template>
 <script>
 export default {
+    data() {
+        return {}
+    },
+    mounted() {
+
+    },
+    methods: {
+
+    }
 
 }
 </script>
