@@ -3,6 +3,4 @@
         <router-view></router-view>
     </div>
 </template>
-<style scoped>
-
-</style>
+<style lang="less" src="@/assets/css/style" />

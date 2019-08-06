@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-    name: 'Layout',
+    name: 'LayoutMain',
 }
 </script>
 <style lang="less" scoped>

@@ -1,9 +1,67 @@
 const path = require("path");
-
+const webpack = require("webpack")
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HTMLPlugin = require('html-webpack-plugin')
-const webpack = require("webpack")
 const isDev = process.env.NODE_ENV === "development"
+
+// vue样式加载配置
+const utils = (function() {
+
+
+    function cssLoaders(options) {
+        options = options || {}
+        var cssLoader = {
+            loader: 'css-loader',
+            options: {
+            }
+        }
+
+        function generateLoaders(loader, loaderOptions) {
+            var loaders = [cssLoader]
+            if (loader) {
+                loaders.push({ loader: loader + '-loader', options: Object.assign({}, loaderOptions, { sourceMap: options.sourceMap }) })
+            }
+
+            if (options.extract) {
+                return ExtractTextPlugin.extract({ use: loaders, fallback: 'vue-style-loader' })
+            } else {
+                return ['vue-style-loader'].concat(loaders)
+            }
+        }
+
+        // 加入less全局变量
+        let less = generateLoaders('less')
+        less = less.concat({
+            loader: 'sass-resources-loader',
+            options: {
+                resources: path.resolve(__dirname, '../src/assets/css/vars.less')
+            }
+        })
+        return {
+            css: generateLoaders(),
+            postcss: generateLoaders(),
+            less,
+            sass: generateLoaders('sass', { indentedSyntax: true }),
+            scss: generateLoaders('sass'),
+            stylus: generateLoaders('stylus'),
+            styl: generateLoaders('stylus')
+        }
+    }
+
+    function styleLoaders(options) {
+        var output = []
+        var loaders = cssLoaders(options)
+        for (var extension in loaders) {
+            var loader = loaders[extension]
+            output.push({ test: new RegExp('\\.' + extension + '$'), use: loader })
+        }
+        return output
+    }
+    return { cssLoaders, styleLoaders }
+})();
+
+
+
 
 const config = {
     entry: path.join(__dirname, "src/main.js"),
@@ -25,14 +83,18 @@ const config = {
     module: {
         rules: [{
                 test: /\.vue$/,
-                loader: "vue-loader"
+                loader: "vue-loader",
+                options: {
+                        loaders: utils.cssLoaders({
+                    })
+                }
             },
             {
                 test: /\.(css|less)(\?.*)?$/,
                 use: [
                     "style-loader",
                     'css-loader',
-                    'less-loader'
+                    'less-loader',
                 ]
             },
             {
@@ -50,7 +112,7 @@ const config = {
                     limit: 8192,
                     name: "static/fonts/[name].[ext]"
                 }
-            }
+            },
         ]
     },
     plugins: [
@@ -67,7 +129,6 @@ const config = {
         })
     ]
 }
-console.log(path.resolve(__dirname, 'index.html'))
 // if (isDev) {
 //     config.devServer = {
 //         port: "8080",

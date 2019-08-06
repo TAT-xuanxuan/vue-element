@@ -1,6 +1,5 @@
 <template>
     <div>
-    	wxy
     </div>
 </template>
 <script>

@@ -1,0 +1,23 @@
+//清除浮动
+.clear-mixin() {
+	zoom:1;
+  &:before,
+  &:after{
+    display:table;
+    content:""
+  }
+  
+  &:after {
+    visibility:hidden;
+    clear: both;
+    height:0;
+    font-size:0;
+  }
+}
+
+// 过渡动画
+.ease-in-out-mixin(){
+	transition:All 0.4s ease-in-out;
+} 
+
+
