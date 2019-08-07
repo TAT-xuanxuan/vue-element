@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page-home">
     	wxy
     </div>
 </template>
@@ -18,4 +18,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.page-home{
+    background-color: @color-yellow;
+}
 </style>
