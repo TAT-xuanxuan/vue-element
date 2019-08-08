@@ -1,6 +1,6 @@
 <template>
     <div>
-    	我的简历
+    	技术杂谈
     </div>
 </template>
 <script>

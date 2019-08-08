@@ -2,14 +2,14 @@ export default {
 	name: 'main',
 	path: "/",
 	component: require("@/components/layout/main").default,
-	redirect:'/home',
+	redirect:'/skill',
 	children: [	
 		{
-			name:'home',
-			path:'home',
-			component:require("@/pages/home").default,
+			name:'skill',
+			path:'skill',
+			component:require("@/pages/skill").default,
 			meta:{
-				title:'首页'
+				title:'技术杂谈'
 			}
 		}
     ]

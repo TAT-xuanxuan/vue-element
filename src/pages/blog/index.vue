@@ -1,6 +1,6 @@
 <template>
     <div>
-    	我的简历
+    	网络日志
     </div>
 </template>
 <script>

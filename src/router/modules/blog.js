@@ -2,14 +2,14 @@ export default {
 	name: 'main',
 	path: "/",
 	component: require("@/components/layout/main").default,
-	redirect:'/home',
+	redirect:'/blog',
 	children: [	
 		{
-			name:'home',
-			path:'home',
-			component:require("@/pages/home").default,
+			name:'blog',
+			path:'blog',
+			component:require("@/pages/blog").default,
 			meta:{
-				title:'首页'
+				title:'网络日志'
 			}
 		}
     ]

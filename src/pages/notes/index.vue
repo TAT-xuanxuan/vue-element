@@ -1,6 +1,6 @@
 <template>
-    <div>
-    	我的简历
+    <div class="page-home">
+    	生活笔记
     </div>
 </template>
 <script>
@@ -18,4 +18,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.page-home{
+    background-color: @color-yellow;
+}
 </style>

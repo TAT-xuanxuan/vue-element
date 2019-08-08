@@ -1,16 +1,16 @@
 export default {
-	name: 'about',
-	path: "/about",
-	component: require("@/pages/about").default,
-	// redirect:'/about',
-	// children: [	
-	// 	{
-	// 		name:'about',
-	// 		path:'about',
-	// 		component:require("@/pages/about").default,
-	// 		meta:{
-	// 			title:'首页'
-	// 		}
-	// 	}
- //    ]
+	name: 'main',
+	path: "/",
+	component: require("@/components/layout/main").default,
+	redirect:'/about',
+	children: [	
+		{
+			name:'about',
+			path:'about',
+			component:require("@/pages/about").default,
+			meta:{
+				title:'关于'
+			}
+		}
+    ]
 }

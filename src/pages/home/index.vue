@@ -1,6 +1,6 @@
 <template>
     <div class="page-home">
-    	wxy
+    	首页
     </div>
 </template>
 <script>
