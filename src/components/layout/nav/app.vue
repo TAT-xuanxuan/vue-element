@@ -1,20 +1,36 @@
 <template>
     <div class="layout-nav">
-        <div class="layout-nav-header">
-            王学勇
-        </div>
+        <div class="layout-nav-header">{{ title }}</div>
         <div class="layout-nav-bar">
-            <el-tabs class="content" @tab-click="toRoute">
-                <el-tab-pane v-for="(v,i) in list" :name="v.path" :label="v.title" :key='i' class="nav-tab"></el-tab-pane>
-            </el-tabs>
+            <div class="content">
+                <div v-for="(v,i) in list" @click="toRoute( v.path)" :key='i' class="nav-tab" :class="{active:path==v.path}"> {{ v.title }}</div>
+            </div>
         </div>
     </div>
 </template>
 <script>
+import config from "#/config"
 export default {
     name: "LayoutNav",
+
+    computed: {
+        title() {
+            return config.title;
+        }
+    },
+    created(){
+        this.path = this.list[0].path;
+    },
+    methods: {
+        //路由跳转
+        toRoute(path) {
+            this.path = path;
+            this.$router.push({ path: path });
+        }
+    },
     data() {
         return {
+            path: "",
             list: [{
                     title: "首页",
                     path: "/home"
@@ -42,16 +58,10 @@ export default {
             ]
         }
     },
-    methods: {
-        //路由跳转
-        toRoute(item) {
-            this.$router.push({ path: item.name });
-        }
-    }
 
 }
 </script>
-<style lang='less' scoped>
+<style lang='less'>
 .layout-nav {
     @bgc-header: #BCE0DD;
     @height-header: 80px;
@@ -80,11 +90,22 @@ export default {
             height: @height-bar;
             line-height: @height-bar;
 
+            .nav-tab {
+                display: inline-block;
+                width: 150px;
+                height: @height-bar;
+                line-height: @height-bar;
+                cursor: pointer;
+            }
+
+            .active {
+                background-color: @bgc-header;
+            }
+
             .nav-tab:hover {
                 background-color: @bgc-header;
             }
 
-            ;
         }
 
     }

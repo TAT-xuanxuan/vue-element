@@ -11,9 +11,9 @@ const userConfig = require("./config");
 const isDev = process.env.NODE_ENV === 'development';
 const isPro = process.env.NODE_ENV === 'production';
 const isTest = process.env.NODE_ENV === 'test';
-console.log(isDev);
-console.log(isPro);
-console.log(isTest);
+// console.log(isDev);
+// console.log(isPro);
+// console.log(isTest);
 
 const config = {
     //入口文件配置
@@ -27,6 +27,8 @@ const config = {
     // mode:'none',
     // 只打印错误日志
     stats: 'errors-only',
+    //浏览器调试暴露源码
+    devtool: 'eval-source-map',
     //目录映射
     resolve: {
         extensions: ['.js', '.html', '.css', '.less', '.json', '.vue'],
