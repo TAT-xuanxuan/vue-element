@@ -1,6 +1,5 @@
 <template>
     <div class="layout-nav">
-        <div class="layout-nav-header">{{ title }}</div>
         <div class="layout-nav-bar">
             <div class="content">
                 <div v-for="(v,i) in list" @click="toRoute( v.path)" :key='i' class="nav-tab" :class="{active:path==v.path}"> {{ v.title }}</div>
@@ -63,9 +62,8 @@ export default {
 </script>
 <style lang='less'>
 .layout-nav {
-    @bgc-header: #BCE0DD;
-    @height-header: 80px;
-
+    @bgc-header: rgb(161, 181, 204);
+    @height-header: 50px;
     @bgc-bar: #584D4D;
     @max-width-bar: 1200px;
     @height-bar: 50px;
