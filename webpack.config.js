@@ -11,9 +11,7 @@ const userConfig = require("./config");
 const isDev = process.env.NODE_ENV === 'development';
 const isPro = process.env.NODE_ENV === 'production';
 const isTest = process.env.NODE_ENV === 'test';
-// console.log(isDev);
-// console.log(isPro);
-// console.log(isTest);
+
 
 const config = {
     //入口文件配置

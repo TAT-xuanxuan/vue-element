@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TAT-xuanxuan/vue-element.git"
+    "url": "git+https://github.com/fengyunchangxuan/vue-element.git"
   },
   "keywords": [
     "vue",
@@ -22,9 +22,9 @@
   "author": "wangxy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TAT-xuanxuan/vue-element/issues"
+    "url": "https://github.com/fengyunchangxuan/vue-element/issues"
   },
-  "homepage": "https://github.com/TAT-xuanxuan/vue-element#readme",
+  "homepage": "https://github.com/fengyunchangxuan/vue-element#readme",
   "dependencies": {
     "cross-env": "^5.2.0",
     "element-ui": "^2.9.2",
